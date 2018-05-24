@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
-import { 
+import {
     View,
     Text,
     StyleSheet,
     Button
 } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation'
+import { StackActions, NavigationActions } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons'
 
-class HomeScreen extends Component {
+export class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Button title="go back to login screen" onPress={() => this.props.navigation.goBack()} />
-                <Button title="go to top of stack" onPress={() => this.props.navigation.popToTop()} />
+                <Text>Home</Text>
+            </View>
+        );
+    }
+}
+
+export class Profile extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>Profile</Text>
             </View>
         );
     }
@@ -25,4 +37,33 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default createBottomTabNavigator({
+    Home: {
+        screen: Home,
+        navigationOptions: {
+            tabBarLabel: 'Home',
+            tabBarIcon: ({tintColor}) => (
+                <Icon name="ios-home" size={24} color={tintColor} />
+            )
+        }
+    },
+    Profile: {
+        screen: Profile,
+        navigationOptions: {
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({tintColor}) => (
+                <Icon name="ios-contact" size={24} color={tintColor} />
+            )
+        }
+    }
+}, {
+    initialRouteName: 'Home',
+    order: ['Home', 'Profile'],
+    navigationOptions: {
+        tabBarVisible: true,
+    },
+    tabBarOptions: {
+        activeTintColor: 'red',
+        inactiveTintColor: 'grey'
+    }
+});

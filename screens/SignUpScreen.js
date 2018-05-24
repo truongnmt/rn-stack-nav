@@ -1,29 +1,23 @@
 import React, { Component } from 'react';
-import {
+import { 
     View,
     Text,
     StyleSheet,
     Button
 } from 'react-native';
-import { StackActions, NavigationActions } from 'react-navigation';
 
-class LoginScreen extends Component {
+class SignUpScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Button title="Back" onPress={()=>
                     this.props.navigation.goBack()} />
                 <Button title="Complete signup" onPress={()=>
-                    this.props.navigation.dispatch(resetAction)} />
+                    this.props.navigation.navigate("Home")} />
             </View>
         );
     }
 }
-
-const resetAction = StackActions.reset({
-    index: 0,
-    actions: [NavigationActions.navigate({ routeName: 'Home' })],
-  });
 
 const styles = StyleSheet.create({
     container: {
@@ -33,4 +27,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default SignUpScreen;
