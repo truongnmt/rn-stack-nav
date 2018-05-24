@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {createStackNavigator} from 'react-navigation'
+import DrawerNavigator from './screens/DrawerNavigator'
 
 import WelcomeScreen from './screens/WelcomeScreen'
 import LoginScreen from './screens/LoginScreen'
@@ -18,7 +19,8 @@ const AppStackNavigator = createStackNavigator({
   Welcome: WelcomeScreen,
   Login: LoginScreen,
   SignUp: SignUpScreen,
-  Home: HomeScreen
+  Home: HomeScreen,
+  DrawerNavigator: DrawerNavigator
 })
 
 const styles = StyleSheet.create({

@@ -13,7 +13,7 @@ class LoginScreen extends Component {
             <View style={styles.container}>
                 <Button title="Back" onPress={()=>
                     this.props.navigation.goBack()} />
-                <Button title="Complete signup" onPress={()=>
+                <Button title="Complete login" onPress={()=>
                     this.props.navigation.dispatch(resetAction)} />
             </View>
         );
@@ -22,7 +22,7 @@ class LoginScreen extends Component {
 
 const resetAction = StackActions.reset({
     index: 0,
-    actions: [NavigationActions.navigate({ routeName: 'Home' })],
+    actions: [NavigationActions.navigate({ routeName: 'DrawerNavigator' })],
   });
 
 const styles = StyleSheet.create({
